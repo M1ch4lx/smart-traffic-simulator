@@ -8,5 +8,12 @@ lazy val root = project
 
     scalaVersion := scala3Version,
 
-    libraryDependencies += "org.scalameta" %% "munit" % "1.3.0" % Test
+    libraryDependencies += "org.scalameta" %% "munit" % "1.3.0" % Test,
+
+    assembly / mainClass := Some("Main"),
+
+    assembly / assemblyMergeStrategy := {
+      case PathList("META-INF", xs @ _*) => MergeStrategy.discard
+      case x => MergeStrategy.first
+    }
   )
