@@ -1,0 +1,20 @@
+services:
+  - type: web
+    name: traffic-backend
+    runtime: docker
+    dockerfilePath: ./smart-traffic-simulator-backend/Dockerfile
+    envVars:
+      - key: PORT
+        value: 8080
+    plan: free
+
+  - type: static
+    name: traffic-frontend
+    buildCommand: npm install && npm run build
+    staticPublishPath: ./smart-traffic-simulator-frontend/dist
+    env:
+      - key: VITE_BACKEND_URL
+        fromService:
+          type: web
+          name: traffic-backend
+          property: host
