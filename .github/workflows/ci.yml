@@ -29,10 +29,18 @@ jobs:
       run:
         working-directory: ./smart-traffic-simulator-backend
     steps:
-      - uses: actions/checkout@v4
-      - name: Setup Scala
-        uses: coursier/setup-action@v1
+      - name: Checkout
+        uses: actions/checkout@v4
+        
+      - name: Setup JDK
+        uses: actions/setup-java@v4
         with:
-          jvm: temurin:21
+          distribution: temurin
+          java-version: '21'
+          cache: sbt
+          
+      - name: Setup sbt launcher
+        uses: sbt/setup-sbt@v1
+        
       - name: Run Tests
         run: sbt test
