@@ -16,7 +16,6 @@ services:
     rootDir: ./smart-traffic-simulator-frontend
     staticPublishPath: dist
     buildCommand: npm install && npm run build
-    staticPublishPath: ./smart-traffic-simulator-frontend/dist
     envVars:
       - key: VITE_BACKEND_URL
         fromService:
