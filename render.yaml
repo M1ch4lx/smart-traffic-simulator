@@ -7,14 +7,18 @@ services:
       - key: PORT
         value: 8080
     plan: free
+    autoDeployTrigger: checksPass
 
-  - type: static
+  - type: web
     name: traffic-frontend
+    runtime: static
     buildCommand: npm install && npm run build
     staticPublishPath: ./smart-traffic-simulator-frontend/dist
-    env:
+    envVars:
       - key: VITE_BACKEND_URL
         fromService:
           type: web
           name: traffic-backend
           property: host
+    plan: free
+    autoDeployTrigger: checksPass
