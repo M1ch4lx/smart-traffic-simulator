@@ -1,6 +1,7 @@
 services:
   - type: web
     name: traffic-backend
+    plan: free
     runtime: docker
     dockerfilePath: ./smart-traffic-simulator-backend/Dockerfile
     envVars:
