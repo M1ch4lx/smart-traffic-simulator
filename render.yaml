@@ -6,7 +6,6 @@ services:
     envVars:
       - key: PORT
         value: 8080
-    plan: free
     autoDeployTrigger: checksPass
 
   - type: web
@@ -20,5 +19,4 @@ services:
           type: web
           name: traffic-backend
           property: host
-    plan: free
     autoDeployTrigger: checksPass
