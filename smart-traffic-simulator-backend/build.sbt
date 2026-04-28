@@ -10,6 +10,12 @@ lazy val root = project
 
     libraryDependencies += "org.scalameta" %% "munit" % "1.3.0" % Test,
 
+    libraryDependencies ++= Seq(
+      "com.softwaremill.sttp.tapir" %% "tapir-http4s-server" % "1.13.15",
+      "com.softwaremill.sttp.tapir" %% "tapir-swagger-ui-bundle" % "1.13.15",
+      "org.http4s" %% "http4s-ember-server" % "0.23.27"
+    ),
+
     assembly / mainClass := Some("Main"),
 
     assembly / assemblyMergeStrategy := {
