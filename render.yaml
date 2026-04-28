@@ -4,6 +4,7 @@ services:
     plan: free
     runtime: docker
     dockerfilePath: ./smart-traffic-simulator-backend/Dockerfile
+    dockerContext: ./smart-traffic-simulator-backend/
     envVars:
       - key: PORT
         value: 8080
